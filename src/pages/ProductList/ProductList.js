@@ -1,7 +1,14 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard/ProductCard';
+import { useHistory } from 'react-router-dom';
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 function ProductList(props) {
+    const history = useHistory();
+
+    function handleClick(id) {
+        history.push("/detail/"+id);
+    }
+
     return (
         <div>
             <header style={{backgroundColor: "blue"}}>
@@ -13,7 +20,11 @@ function ProductList(props) {
                 </div>
                 <div>
                     {props.data && props.data.map(function(model) {
-                        return <ProductCard key={props.data.id} model={model} />
+                        return (
+                            <div key={model.id} onClick={() => handleClick(model.id)}>
+                                <ProductCard info={model} />
+                            </div>
+                        )
                     })}
 
                     {props.data && JSON.stringify(props.data, null, 4)}

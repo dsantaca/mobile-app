@@ -21,17 +21,18 @@ let [responseData, setResponseData] = useState('');
         console.error(error);
       })
 
-  }, [setResponseData, responseData]);
+  }, []);
 
   return (
     <Router>
       <div className="App">
+        Mobile Tech
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Product List</Link>
           </li>
           <li>
-            <Link to="/detail">ProductDetail</Link>
+            <Link to="/detail/:productId">Product Detail</Link>
           </li>
         </ul>
 
@@ -43,18 +44,12 @@ let [responseData, setResponseData] = useState('');
               <ProductList {...props} data={responseData} />
             )}>
           </Route>
-          <Route path="/detail">
-            <ProductDetail />
+          <Route path="/detail/:productId"
+            render ={(props) => (
+              <ProductDetail {...props} />
+            )}>
           </Route>
         </Switch>
-
-        <hr />
-        
-        {/* <pre>
-          <code>
-            {responseData && JSON.stringify(responseData, null, 4)}
-          </code>
-        </pre> */}
       </div>
     </Router>
   );
