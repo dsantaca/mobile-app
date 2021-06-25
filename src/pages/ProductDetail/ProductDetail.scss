@@ -1,0 +1,73 @@
+.detailsContainer {
+    background-color: lightgrey;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .imageContainer {
+        align-content: center;
+        display: flex;
+        padding-left: 32%;
+    }
+
+    .detailsContainer {
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+
+        
+    }
+
+    .infoContainer {
+        .details {
+            padding: 4%;
+
+            th{
+                border-bottom: 1px solid white;
+                color: darkslategray;
+                font-weight: 700;
+                padding: 6px 0;
+                text-align: left;
+                vertical-align: top;
+                width: 20%;
+            }
+
+            td{
+                border-bottom: 1px solid white;
+                border-image: linear-gradient(90deg, white 0, rgba(246, 247, 249, 0) 80%) 0 0 100% 0 stretch;
+                color: darkslategrey;
+                padding: 6px 0;
+                text-align: left;
+                vertical-align: top;
+                width: 80%;
+            }
+        }
+
+        .actions {
+
+            .colorPill{
+                background-color: slateblue;
+                box-shadow:0 2px 8px -1px rgb(58 81 223 / 25%);
+                color: white;
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 1.45;
+                margin: 0 2%;
+                padding: 3px;
+            }
+
+            .storagePill {
+                box-shadow: 0 2px 8px -1px rgb(58 81 223 / 25%);
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 1.45;
+                margin: 0 2%;
+                padding: 3px;
+            }
+
+            .addButton{
+                display: flex;
+                margin: 6% 50%;
+            }
+
+        }
+    }
+}

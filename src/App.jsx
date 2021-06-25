@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {Link, Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function App() {
 let [responseData, setResponseData] = useState('');
+let [itemCart] = useState(0);
 
   useEffect(() => {
     axios({
@@ -26,17 +28,22 @@ let [responseData, setResponseData] = useState('');
   return (
     <Router>
       <div className="App">
-        Mobile Tech
-        <ul>
-          <li>
-            <Link to="/">Product List</Link>
-          </li>
-          <li>
-            <Link to="/detail/:productId">Product Detail</Link>
-          </li>
-        </ul>
-
-        <hr />
+        <div className="header">
+          <h1><Link to="/">Mobile Tech</Link></h1>
+          {/* <Breadcrumbs aria-label="breadcrumb">
+            <Link color="inherit" href="/">
+              Home
+            </Link>
+            <Link color="inherit" href="/detail/:productId" aria-current="page" >
+              Product
+            </Link>
+          </Breadcrumbs> */}
+          <div className="cartIcon">
+            <ShoppingCartIcon/>
+            {itemCart}
+          </div>
+            
+        </div>
 
         <Switch>
           <Route exact path="/"
