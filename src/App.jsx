@@ -38,36 +38,23 @@ let [responseData, setResponseData] = useState('');
         <hr />
 
         <Switch>
-          <Route exact path="/">
-            <ProductList />
+          <Route exact path="/"
+            render ={(props) => (
+              <ProductList {...props} data={responseData} />
+            )}>
           </Route>
           <Route path="/detail">
             <ProductDetail />
           </Route>
         </Switch>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
 
-        
         <hr />
         
-        <pre>
+        {/* <pre>
           <code>
             {responseData && JSON.stringify(responseData, null, 4)}
           </code>
-        </pre>
+        </pre> */}
       </div>
     </Router>
   );
