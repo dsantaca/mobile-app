@@ -1,12 +1,27 @@
+$bp-s: 320px;
+$bp-m: 768px;
+$bp-l: 1016px;
+$bp-xl: 1436px;
+
 .detailsContainer {
     background-color: lightgrey;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    
+    @media (min-width: $bp-l){
+        grid-template-columns: 1fr 1fr;
+
+    }
 
     .imageContainer {
         align-content: center;
         display: flex;
         padding-left: 32%;
+        padding-top: 10%;
+
+        @media (min-width: $bp-l){
+            padding: 12%;
+        }
     }
 
     .detailsContainer {
@@ -18,7 +33,7 @@
 
     .infoContainer {
         .details {
-            padding: 4%;
+            padding: 12% 4% 4%;
 
             th{
                 border-bottom: 1px solid white;
@@ -65,7 +80,11 @@
 
             .addButton{
                 display: flex;
-                margin: 6% 50%;
+                margin: 6% 45%;
+
+                @media (min-width: $bp-m){
+                    margin: 6% 48%;
+                }
             }
 
         }
